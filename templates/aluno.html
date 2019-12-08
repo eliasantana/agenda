@@ -1,0 +1,19 @@
+{% extends "model-page.html" %}
+
+{% block content %}
+    <form action="incluir/" method="post"> {% csrf_token %}
+        <br>
+        <label>Nome do Aluno</label>
+        <br>
+        <input type="text" maxlength="50" name="nome">
+        <br>
+        <label>Série</label>
+        <br>
+        <input type="text" name="serie" maxlength="5">
+        <br><br>
+        <button type="submit">Enviar</button>
+        <a href="/">
+            <button type="button"> Cancelar </button>
+        </a>
+    </form>
+{% endblock %}

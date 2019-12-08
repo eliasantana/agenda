@@ -1,0 +1,23 @@
+{% extends "model-page.html" %}
+
+{% block content %}
+
+<h3> Alunos</h3>
+<a href="cadastro/">
+    <button type="button">Novo Aluno</button>
+</a>
+<br><br><br>
+<table>
+    <tr>
+        <th align="left">Nome do aluno</th><th align="left">Série</th>
+    </tr>
+    {% for aluno in alunos %}
+       <tr>
+           <td width="200">{{ aluno.nome }}</td>
+           <td width="100"> {{ aluno.serie }}</td>
+       </tr>
+    {% endfor %}
+
+</table>
+
+{% endblock %}

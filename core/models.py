@@ -1,11 +1,12 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+
 # Create your models here.
 class Evento(models.Model):
     titulo = models.CharField(max_length=20)
     descricao = models.TextField(blank=True, null=True)
-    data_evento = models.DateTimeField( verbose_name='Data do Evento')
+    data_evento = models.DateTimeField(verbose_name='Data do Evento')
     data_criacao = models.DateTimeField(auto_now=True)
     usuario = models.ForeignKey(User, on_delete=models.CASCADE)
 
@@ -17,3 +18,18 @@ class Evento(models.Model):
 
     def get_data_evento(self):
         return self.data_evento.strftime('%d/%m/%Y %H:%M Hrs')
+
+    def get_input_data_evento(self):
+        return self.data_evento.strftime('%Y-%m-%dT%H:%M')
+
+
+class Aluno(models.Model):
+    nome = models.TextField(max_length=50)
+    serie = models.TextField(max_length=5)
+    data_cadastro = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        db_table = 'aluno'
+
+    def __str__(self):
+        return self.nome
